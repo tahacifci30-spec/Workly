@@ -4,3 +4,7 @@
 [build.environment]
   # Next.js 16 vraagt minimaal Node 20.9
   NODE_VERSION = "22"
+  # NEXT_PUBLIC_* waarden worden bewust in de client-bundle (en Turbopack-cache)
+  # opgenomen. Ze zijn publiek, dus de secrets scanner mag ze negeren.
+  # Echte geheimen (AUTH_SECRET, SUPABASE_SERVICE_ROLE_KEY) blijven gescand.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"
