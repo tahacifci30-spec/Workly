@@ -4,3 +4,7 @@
 [build.environment]
   # Next.js 16 vraagt minimaal Node 20.9
   NODE_VERSION = "22"
+  # De Supabase-URL en publishable key zijn bewust publiek (NEXT_PUBLIC_) en worden in de client-bundle ingebakken.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"
+  # De Next.js/Turbopack-buildcache wordt niet gepubliceerd; niet scannen.
+  SECRETS_SCAN_OMIT_PATHS = ".netlify/.next/cache/**"
